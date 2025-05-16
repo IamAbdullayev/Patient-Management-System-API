@@ -1,0 +1,8 @@
+@basePath=api/v1
+
+### DELETE request to delete the patient
+
+DELETE http://localhost:4000/{{basePath}}/patients/44803fb4-2073-4e79-91ab-19dc09263366/delete
+
+
+###

@@ -54,7 +54,7 @@ public class PatientResponseDTO {
         return dateOfBirth;
     }
 
-    public void setDateOfBirthday(String dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }
