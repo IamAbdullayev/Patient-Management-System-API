@@ -2,7 +2,7 @@
 
 ### DELETE request to delete the patient
 
-DELETE http://localhost:4000/{{basePath}}/patients/fa43b29e-a224-42d9-b8f6-d1cfb8a55e8d/delete
+DELETE http://localhost:4000/{{basePath}}/patients/531f1a75-1a41-407f-a6a6-8d490a41dac0/delete
 
 
 ###
