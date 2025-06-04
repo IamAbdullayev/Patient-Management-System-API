@@ -53,8 +53,10 @@ public class PatientService {
         Patient newPatient = patientRepository.save(
                 PatientMapper.toModel(request));
 
-        billingServiceGrpcClient.createBillingAccount(newPatient.getId().toString(),
-                newPatient.getName(), newPatient.getEmail());
+        billingServiceGrpcClient.createBillingAccount(
+                newPatient.getId().toString(),
+                newPatient.getName(),
+                newPatient.getEmail());
 
         kafkaProducer.sendEvent(newPatient);
 

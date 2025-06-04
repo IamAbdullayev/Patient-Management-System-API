@@ -13,28 +13,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BillingServiceGrpcClient {
-    private static final Logger log = LoggerFactory.getLogger(
-            BillingServiceGrpcClient.class);
+    private static final Logger log = LoggerFactory.getLogger(BillingServiceGrpcClient.class);
     private final BillingServiceGrpc.BillingServiceBlockingStub blockingStub;
 
-    public BillingServiceGrpcClient(
-            @Value("${billing.service.address:localhost}") String serverAddress,
-            @Value("${billing.service.grpc.port:9001}") int serverPort) {
+    public BillingServiceGrpcClient(@Value("${billing.service.address:localhost}") String serverAddress,
+                                    @Value("${billing.service.grpc.port:9001}") int serverPort) {
+        log.info("Connecting to Billing Service GRPC service at {}:{}", serverAddress, serverPort);
 
-        log.info("Connecting to Billing Service GRPC service at {}:{}",
-                serverAddress, serverPort);
-
-        ManagedChannel channel = ManagedChannelBuilder.forAddress(serverAddress,
-                serverPort).usePlaintext().build();
-
+        ManagedChannel channel = ManagedChannelBuilder
+                .forAddress(serverAddress, serverPort)
+                .usePlaintext().build();
         blockingStub = BillingServiceGrpc.newBlockingStub(channel);
     }
 
 
     public BillingResponse createBillingAccount(String patientId, String name,
                                                 String email) {
-        BillingRequest request = BillingRequest.newBuilder().setPatientId(patientId)
-                .setName(name).setEmail(email).build();
+        BillingRequest request = BillingRequest.newBuilder()
+                .setPatientId(patientId)
+                .setName(name)
+                .setEmail(email).build();
 
         BillingResponse response = blockingStub.createBillingAccount(request);
         log.info("Received response from billing service via GRPC: {}", response);

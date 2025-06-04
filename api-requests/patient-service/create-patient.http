@@ -1,12 +1,12 @@
-@basePath=api/v1
+
 
 ### POST request to create a new patient
-POST http://localhost:4000/{{basePath}}/patients/create
+POST http://localhost:4004/api/patients/create
 Content-Type: application/json
 
 {
-  "name": "Ramazan",
-  "email": "ramazan@email.com",
+  "name": "Lomtik",
+  "email": "lombada@email.com",
   "address": "Azerbaijan, Baku",
   "dateOfBirth": "2001-11-25",
   "registeredDate": "2025-05-19"
