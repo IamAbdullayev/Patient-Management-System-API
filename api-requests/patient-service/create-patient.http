@@ -5,8 +5,8 @@ POST http://localhost:4004/api/patients/create
 Content-Type: application/json
 
 {
-  "name": "Lomtik",
-  "email": "lombada@email.com",
+  "name": "Ursen",
+  "email": "ursenoloid@email.com",
   "address": "Azerbaijan, Baku",
   "dateOfBirth": "2001-11-25",
   "registeredDate": "2025-05-19"
